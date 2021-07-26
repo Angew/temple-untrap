@@ -2,6 +2,6 @@
 
 namespace TemUnt {
 
-class SituationBuilder;
+class Situation;
 
 } //namespace TemUnt

@@ -16,5 +16,6 @@ endif()
 
 
 # Code
+add_subdirectory(solver)
 add_subdirectory(temunt)
 add_subdirectory(test)

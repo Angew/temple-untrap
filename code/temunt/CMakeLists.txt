@@ -1,10 +1,10 @@
 add_library(TemUnt STATIC
-	private/SituationBuilder.cpp
+	private/Situation.cpp
 )
 foreach(header
 	Code
 	Encoding
-	SituationBuilder
+	Situation
 )
 	target_sources(TemUnt PRIVATE
 		interface/TemUnt/${header}.hh
@@ -19,6 +19,8 @@ target_include_directories(TemUnt
 )
 
 target_link_libraries(TemUnt
+	PUBLIC
+		Boost::boost
 	PRIVATE
 		WarningFree
 )
