@@ -1,0 +1,9 @@
+add_executable(Tester
+	main.cpp
+)
+target_link_libraries(Tester
+	PRIVATE
+		TemUnt
+		WarningFree
+		Boost::boost
+)
