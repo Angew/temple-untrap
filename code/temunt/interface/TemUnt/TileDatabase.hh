@@ -2,6 +2,6 @@
 
 namespace TemUnt {
 
-class Encoding;
+class TileDatabase;
 
 } //namespace TemUnt

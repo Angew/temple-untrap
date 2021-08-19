@@ -1,6 +1,10 @@
 #pragma once
 
 #include "TemUnt/Code.hxx"
+#include "TemUnt/Direction.hh"
+#include "TemUnt/Encoding.hxx"
+#include "TemUnt/Tile.hh"
+#include "TemUnt/TileDatabase.hh"
 
 #include <array>
 
@@ -9,9 +13,18 @@ namespace TemUnt {
 
 class Situation
 {
-	Code code;
+	Encoding encoding;
+	CodeInt waterSquare{~0u};
+	const TileDatabase *tileDatabase;
 
 	Situation(Code code);
+
+	void decodeWaterSquare();
+	CodeInt decodeSquare(CodeInt squareCode) const;
+	CodeInt encodeSquare(CodeInt square) const;
+
+	bool testPassable(Tile tile1, Direction dir1, CodeInt square2, Direction dir2) const;
+	bool testPassable(Tile tile1, Direction dir1, Tile tile2, Direction dir2) const;
 
 public:
 	static Situation fromCode(Code code);
@@ -21,7 +34,7 @@ public:
 		friend class Situation;
 
 		std::array<Code, 6> neighbours;
-		const Code* end_;
+		Code* end_;
 
 		NeighbourEnumerator();
 
@@ -34,7 +47,7 @@ public:
 
 	NeighbourEnumerator iterateNeighbours();
 
-	Code getCode() const { return code; }
+	Code getCode() const;
 };
 
 } //namespace TemUnt

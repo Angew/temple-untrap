@@ -3,8 +3,12 @@ add_library(TemUnt STATIC
 )
 foreach(header
 	Code
+	Direction
 	Encoding
 	Situation
+	Tile
+	TileDatabase
+	TileEdge
 )
 	target_sources(TemUnt PRIVATE
 		interface/TemUnt/${header}.hh
@@ -16,6 +20,11 @@ endforeach()
 target_include_directories(TemUnt
 	PUBLIC
 		interface
+)
+
+target_compile_features(TemUnt
+	PUBLIC
+		cxx_std_17
 )
 
 target_link_libraries(TemUnt

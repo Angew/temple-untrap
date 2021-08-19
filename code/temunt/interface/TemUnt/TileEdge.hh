@@ -2,6 +2,6 @@
 
 namespace TemUnt {
 
-class Encoding;
+enum class TileEdge : int;
 
 } //namespace TemUnt
